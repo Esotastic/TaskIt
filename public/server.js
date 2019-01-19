@@ -21,6 +21,6 @@ console.log('listening on 3000');
 //request object and response object
 app.get('/',(req, res) => {
     res.send('Hello from response!');
-    res.sendFile(__dirname + './index.html');
+    res.sendFile(__dirname + '/');
 });
 
