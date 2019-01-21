@@ -10,7 +10,7 @@ const User = require("../../models/User");
 router.get("/", (req, res) => {
   User.find()
     .sort({ date: -1 })
-    .then(users => res.json(users))
+    .then(users => res.json(users));
 }); 
 
 // @route POST api/Users
@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
     name: req.body.name
   });
 
-  newItem.save().then(user => res.json(user));
+  newUser.save().then(user => res.json(user));
 }); 
 
 // @route DELETE api/users/:id
