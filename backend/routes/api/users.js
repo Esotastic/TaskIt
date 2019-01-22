@@ -16,9 +16,11 @@ router.get("/", (req, res) => {
 // @route POST api/Users
 // @desc Create an User
 // @access Public
+// you have to create a user objct with name and username strings
 router.post("/", (req, res) => {
   const newUser = new User({
-    name: req.body.name
+    name: req.body.name,
+    userName: req.body.userName
   });
 
   newUser.save().then(user => res.json(user));
