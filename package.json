@@ -3,16 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "express-session": "^1.15.6",
     "node-sass": "^4.11.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-=======
     "concurrently": "^4.1.0",
->>>>>>> 3558b4cf8fa9383a6886f01f08163a7e205a137c
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
