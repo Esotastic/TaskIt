@@ -7,10 +7,9 @@ class App extends Component {
     this.state = initialState;
   }
 
-
-
   render() {
     return (
+
       <div className="App">
         <header className="App-header">
           <p>

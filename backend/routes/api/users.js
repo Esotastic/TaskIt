@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 }); 
 
 // @route POST api/Users
-// @desc Create an User
+// @desc Create a User
 // @access Public
 // you have to create a user objct with name and username strings
 router.post("/", (req, res) => {
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
 }); 
 
 // @route DELETE api/users/:id
-// @desc Delete an user
+// @desc Delete a user
 // @access Public
 router.delete("/:id", (req, res) => {
   User.findById(req.params.id)
