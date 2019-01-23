@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 //Item Model
 const User = require("../../models/User");
@@ -17,13 +18,18 @@ router.get("/", (req, res) => {
 // @desc Create a User
 // @access Public
 // you have to create a user objct with name and username strings
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
   const newUser = new User({
-    name: req.body.name,
-    userName: req.body.userName
+    fullName: req.body.fullName,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: bcrypt.hashSync(req.body.password),
   });
 
-  newUser.save().then(user => res.json(user));
+  newUser.save().then(user => res.json(user))
+  .catch(err =>{
+    newUser.status(400).send("unable to create new user");
+  });
 }); 
 
 // @route DELETE api/users/:id
