@@ -1,3 +1,4 @@
 /node_modules/
 .idea
 /config/keys.js
+/backend/config/keys
