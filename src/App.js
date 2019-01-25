@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Register from './components/register/Register'
+import React, { Component } from "react";
+import Register from "./components/register/register";
 
 class App extends Component {
   render() {
