@@ -6,7 +6,6 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.0",
     "connect-flash": "^0.1.1",
-    "express-session": "^1.15.6",
     "mongoose": "^5.4.6",
     "node-sass": "^4.11.0",
     "passport": "^0.4.0",
