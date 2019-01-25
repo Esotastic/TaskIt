@@ -1,74 +1,70 @@
-import React from 'react';
-import './register.scss';
-
-
+import React from "react";
+const url = "/";
 export default class Register extends React.Component {
-    //set initial state for input fields
-    state = {
-      fullName: '',
-      userName: '',
-      email: '',
-      password: '',
-    }
+  state = {
+    fullName: "",
+    userName: "",
+    email: "",
+    password: ""
+  };
 
-    //on input change the state of the target.name to the target.value
+  
     change = e => {
       this.setState({
         [e.target.name]: e.target.value
       });
-    }
-    onSubmit = e => {
-        //prevent reloading
-        e.preventDefault();
-        //testing
-        console.log(this.state);
-        this.setState({
-          fullName: '',
-          userName: '',
-          email: '',
-          password: '',
-        });
+    };
 
-    }
+    onSubmit = e => {
+      const { fullName, userName, email, password } = this.state;
+      console.log(this.state);
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({fullname: fullName, userName: userName, email: email, password: password}),
+        headers: {
+          "Content-Type": "application/json"
+        }
+
+      }).then(res => res.json(res))
+      .then(res => console.log('Successfully registered new user: ', JSON.stringify(res)))
+      .catch(error => console.error('Error: ', error));
+      }
+
   render() {
     return (
-      <form className="center" method="post" action="/">
-
+      <form>
+        
         <input
-        type="text" 
-        name="fullName"
-        placeholder='Full Name' 
-        value={this.state.fullName} 
-        onChange={e => this.change(e)} 
-        tabIndex="1" />
-        <br/>
-        <input 
-        type="text" 
-        name="userName"
-        placeholder='Username' 
-        value={this.state.userName} 
-        onChange={e => this.change(e)} 
-        tabIndex="2" />
-        <br/>
-        <input 
-        type="email" 
-        name="email"
-        placeholder='Email@provider.com' 
-        value={this.state.email} 
-        onChange={e => this.change(e)} 
-        tabIndex="3" />
-        <br/>
-        <input 
-        type="password" 
-        name="password"
-        placeholder='password' 
-        value={this.state.password} 
-        onChange={e => this.change(e)} 
-        tabIndex="4" />
-        <br/>
-        <button onClick={
-        e => this.onSubmit(e)}>Register</button>
+          name="fullName"
+          placeholder="Full Name"
+          value={this.state.fullName}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="userName"
+          placeholder="Username"
+          value={this.state.userName}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="email"
+          placeholder="Email"
+          value={this.state.email}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={this.state.password}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <button onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
-    )
+    );
   }
-}
+};
