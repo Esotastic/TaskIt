@@ -1,0 +1,18 @@
+//register SCSS goes here..
+#form {
+  background-color:#eee;
+  position:relative;
+  display:block;
+  margin:0 auto;
+  padding:10px 50px;
+  width:300px;
+  max-width:300px;
+  text-align:center;
+  input {
+    width:auto;
+    
+  }
+}
+::placeholder {
+  color:#000;
+}
