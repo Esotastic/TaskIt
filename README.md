@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+=======
+# TaskIt
+TaskIt is a task management system that teams can sign up and organize team projects.
+
+To run this application you first need to create a DB from mLab.com and connect it to the ./clients/keys.js file. 
+You can get this after the following:
+### go to [https://mlabs.com]
+### register and create a free database
+### go to users section and create a user
+### you can then replace the dbuser and dbpassword with the user you created
+### mongodb://<dbuser>:<dbpassword>@ds161794.mlab.com:61794/DBNAME
+### they will give you an example like the one above
+### once added to the keys.js file you can test it by using `npm server` after moving to the ./backend/ directory
+
+
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +83,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<<<<<<< HEAD
+=======
+
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5

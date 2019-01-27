@@ -1,0 +1,8 @@
+/** NAV **/
+nav {
+    background-image: url('/images/header_bg_v2.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow:hidden;
+    width:100%;
+}

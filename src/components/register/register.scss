@@ -1,4 +1,5 @@
 //register SCSS goes here..
+<<<<<<< HEAD
 #form {
   background-color:#eee;
   position:relative;
@@ -16,3 +17,23 @@
 ::placeholder {
   color:#000;
 }
+=======
+#register {
+    padding:40px 20px;
+    margin-top:80px;
+    margin-bottom:80px;
+    .row {
+    padding:2px 0;
+    margin-bottom:0;
+    }
+    .row:first-child{
+    padding-top:30px;
+    }
+    .row:last-child {
+    padding-bottom:30px;
+    }
+}
+::placeholder {
+    color:#000;
+}
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5

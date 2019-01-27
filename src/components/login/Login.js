@@ -11,7 +11,11 @@ export default class Login extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <p>Login page</p>
+=======
+
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5
 
     )
   }
