@@ -1,22 +1,19 @@
-form {
-    text-align:center;
-    margin:0 auto;
-    input {
-        margin:5px auto;
-        padding:10px 5px;
-        width:300px;
+//register SCSS goes here..
+#register {
+    padding:40px 20px;
+    margin-top:80px;
+    margin-bottom:80px;
+    .row {
+    padding:2px 0;
+    margin-bottom:0;
     }
-    button { 
-        padding:10px 25px;
-        border-radius: 6px;
-        border:none;
-        background-color: rgb(76, 216, 248);
-        font-weight:700;
-        text-transform: uppercase;
-        font-size:16px;
+    .row:first-child{
+    padding-top:30px;
     }
-    :hover {
-        cursor: pointer;
+    .row:last-child {
+    padding-bottom:30px;
     }
-    
+}
+::placeholder {
+    color:#000;
 }

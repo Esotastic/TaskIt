@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Register />
+      `<div className="container"><Register /></div>
       </div>
     );
   }
