@@ -4,8 +4,10 @@ import Register from "./components/register/register";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      `<div className="container"><Register /></div>
+      <div id="banner-one">
+        <div className="App">
+          <div className="container"><Register /></div>
+        </div>
       </div>
     );
   }
