@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import './register.scss';
 const url = "/";
 
@@ -67,8 +67,13 @@ export default class Register extends React.Component {
               <label for="icon_prefix">Password</label>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Register
+          <i class="material-icons right">send</i>
+        </button>
+        
+      </form>
+    </div >
     );
   }
 };
