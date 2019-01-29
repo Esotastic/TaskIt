@@ -67,13 +67,13 @@ export default class Register extends React.Component {
               <label for="icon_prefix">Password</label>
             </div>
           </div>
-        </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Register
+          {/* </div> */}
+          <button class="btn waves-effect waves-light" type="submit" name="action">Register
           <i class="material-icons right">send</i>
-        </button>
-        
-      </form>
-    </div >
+          </button>
+
+        </form>
+      </div >
     );
   }
 };
