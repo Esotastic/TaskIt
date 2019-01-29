@@ -14,18 +14,12 @@ export default class Register extends React.Component {
   };
 
 
-  change = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   onSubmit = e => {
     const { fullName, userName, email, password } = this.state;
     console.log(this.state);
-    fetch(url, {
+    fetch("backend/routes/api/users.js", {
       method: "POST",
-      body: JSON.stringify({ fullname: fullName, userName: userName, email: email, password: password }),
+      body: JSON.stringify({ fullName: fullName, userName: userName, email: email, password: password }),
       headers: {
         "Content-Type": "application/json"
       }

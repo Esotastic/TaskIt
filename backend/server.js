@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const users = require("./routes/api/users");
+const tasks = require("./routes/api/tasks")
 
 
 const app = express();
@@ -11,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
-const db = require("../config/keys.js").mongoURI;
+const db = require("./config/keys.js").mongoURI;
 
 //Connnect to Mongo
 mongoose
@@ -22,6 +23,7 @@ mongoose
 
 //Use Routes
 app.use("/api/users", users);
+app.use("/api/tasks", tasks);
 
 
 const port = process.env.PORT || 5000
