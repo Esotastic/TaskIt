@@ -18,7 +18,7 @@ export default class Register extends React.Component {
     onSubmit = e => {
       const { fullName, userName, email, password } = this.state;
       console.log(this.state);
-      fetch(url, {
+      fetch("backend/routes/api/users.js", {
         method: "POST",
         body: JSON.stringify({fullname: fullName, userName: userName, email: email, password: password}),
         headers: {
@@ -32,10 +32,11 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <form>
+      <form method="POST" action="/">
         
         <input
           name="fullName"
+          type="text"
           placeholder="Full Name"
           value={this.state.fullName}
           onChange={e => this.change(e)}
