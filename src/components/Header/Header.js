@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 
-import styles from './Header.scss';
+// import styles from './Header.scss';
+import './Header.scss';
 
 class Header extends Component {
     //     renderContent() {
@@ -25,7 +26,7 @@ class Header extends Component {
 
         return (
             <div>
-                <nav className={styles.Nav}>
+                <nav className="Nav">
                     <div className="nav-wrapper">
                         <a href="#" class="brand-logo">TaskIt</a>
                         <ul id="nav-mobile" class="right">
@@ -35,7 +36,7 @@ class Header extends Component {
                         </ul>
                     </div>
                 </nav>
-            </div>
+            </div >
             //             <nav>
             //                 <Link
             //                     to="/"
