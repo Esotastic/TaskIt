@@ -15,6 +15,10 @@ const TaskSchema = new Schema({
     // },
     username: String,
   },
+  taskBody: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now

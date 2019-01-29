@@ -37,41 +37,6 @@ export default class Register extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <form method="POST" action="/">
-        
-        <input
-          name="fullName"
-          type="text"
-          placeholder="Full Name"
-          value={this.state.fullName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="userName"
-          placeholder="Username"
-          value={this.state.userName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
-=======
       <div class="container">
       <form id="register" class="col s12 blue-grey lighten-5 z-depth-3 center-align text-center-align">
         <div class="row">
@@ -106,7 +71,6 @@ export default class Register extends React.Component {
           <i class="material-icons right">send</i>
         </button>
         
->>>>>>> be41d8b39a2069c8ee16a7d986fd8494af082349
       </form>
     </div>
     );
