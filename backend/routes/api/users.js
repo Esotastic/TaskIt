@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 
 //Item Model
 const User = require("../../models/User");
+const Board = require("../../models/Board");
+
 
 module.exports = router;
 

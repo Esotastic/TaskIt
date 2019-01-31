@@ -6,22 +6,23 @@ const User = require("../../models/User");
 const Task = require("../../models/Task");
 const Board = require("../../models/Board");
 
+
 module.exports = router;
 
 // All below routes to be changed to be user-specific after initial testing. // 
 
-// @route GET api/tasks
-// @desc Get All tasks 
+// @route GET api/boards
+// @desc Get All board 
 // @access Public
 
 router.get("/", (req, res) => {
-  Task.find()
+  Board.find()
     .sort({ date: -1 })
-    .then(tasks => res.json(tasks));
+    .then(boards => res.json(boards));
 }); 
 
-// @route POST api/tasks
-// @desc Create a task
+// @route POST api/boards
+// @desc Create a board
 // @access Public
 router.post("/", (req, res) => {
   // User.findById(req.params.id, (err, user) => {
@@ -41,19 +42,19 @@ router.post("/", (req, res) => {
   //   }
   // })
 
-  const newTask = new Task({
-    taskName: req.body.taskName,
+  const newBoard = new Board({
+    boardName: req.body.boardName,
   });
 
-  newTask.save().then(task => res.json(task));
+  newBoard.save().then(board => res.json(board));
 }); 
 
-// @route DELETE api/tasks/:id
+// @route DELETE api/board/:id
 // @desc Delete a user
 // @access Public
 router.delete("/:id", (req, res) => {
-  Task.findById(req.params.id)
-    .then(task => task.remove().then(() => res.json({success: true})))
+  Board.findById(req.params.id)
+    .then(board => board.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false})); 
 });
 

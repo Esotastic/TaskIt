@@ -2,22 +2,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-//Create Task Schema
-const TaskSchema = new Schema({
-  taskName: {
+
+//Create Board Schema
+const BoardSchema = new Schema({
+  boardName: {
     type: String,
     required: true 
   },
-  board: {
+  author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Board"
+      ref: "User"
     },
-    boardName: String,
-  },
-  taskBody: {
-    type: String,
-    required: true
+    username: String,
   },
   date: {
     type: Date,
@@ -26,4 +23,4 @@ const TaskSchema = new Schema({
 });
 
 // eslint-disable-next-line no-undef
-module.exports = Task = mongoose.model("task", TaskSchema);
+module.exports = Board = mongoose.model("board", BoardSchema);
