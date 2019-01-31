@@ -1,7 +1,8 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
 //Item Model
+const User = require("../../models/User");
 const Task = require("../../models/Task");
 
 module.exports = router;
@@ -22,6 +23,23 @@ router.get("/", (req, res) => {
 // @desc Create a task
 // @access Public
 router.post("/", (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    if(err) {
+      console.log(err);
+    } else {
+      Task.create( req.body.task, (err, task) => {
+        if(err){
+          console.log(err);
+        } else {
+          task.taskName = req.body.taskName;
+          task.taskBody: req.body.taskBody;
+          author.id: req.user._id,
+          task.author.username = req.user.username   
+        }
+      })
+    }
+  })
+
   const newTask = new Task({
     taskName: req.body.taskName,
   });

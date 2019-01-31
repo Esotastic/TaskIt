@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
+
 //Create Task Schema
 const TaskSchema = new Schema({
   taskName: {
@@ -8,11 +10,10 @@ const TaskSchema = new Schema({
     required: true 
   },
   author: {
-    // THIS WILL BE SET UP WHEN USERS CAN FULLY LOG IN
-    // id: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User"
-    // },
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
     username: String,
   },
   taskBody: {
