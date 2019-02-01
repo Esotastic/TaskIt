@@ -15,6 +15,7 @@ module.exports = router;
 router.get("/", (req, res) => {
   User.find()
     .sort({ date: -1 })
+    .populate("boards")
     .then(users => res.json(users));
 }); 
 

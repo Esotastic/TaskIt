@@ -9,13 +9,9 @@ const BoardSchema = new Schema({
     type: String,
     required: true 
   },
-  author: {
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    username: String,
-  },
+  boardForUser: [{
+    type: Schema.Types.ObjectId, ref: "User"
+  }],
   date: {
     type: Date,
     default: Date.now

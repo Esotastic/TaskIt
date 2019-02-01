@@ -41,12 +41,29 @@ router.post("/", (req, res) => {
   //     })
   //   }
   // })
+  Board.findOne({_id: "5c4522ea9063ce2458e71647"})
+    .populate('boardForUser')
+    .exec(function(err, board) {
+      const newBoard = new Board({
+        boardName: req.body.boardName,
+      });
+    
+    
+      newBoard.save().then(board => res.json(board));
+    });
+  // const newBoard = new Board({
+  //   boardName: req.body.boardName,
+  // });
 
-  const newBoard = new Board({
-    boardName: req.body.boardName,
-  });
 
-  newBoard.save().then(board => res.json(board));
+  // newBoard.save(function(err) {
+  //   const user = User.find({_id: });
+
+  //   user.boards.userBoard.push(newBoard);
+  //   user.save(function(err){
+
+  //   });
+  // }).then(board => res.json(board));
 }); 
 
 // @route DELETE api/board/:id
