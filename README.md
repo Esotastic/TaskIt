@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # TaskIt
 TaskIt is a task management system that teams can sign up and organize team projects.
 
@@ -12,6 +14,7 @@ You can get this after the following:
 ### once added to the keys.js file you can test it by using `npm server` after moving to the ./backend/ directory
 
 
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -80,4 +83,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<<<<<<< HEAD
+=======
 
+>>>>>>> f0fc7f180f2fdb6cb043707ae1ff7a26130bafd5
