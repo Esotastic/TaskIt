@@ -22,6 +22,10 @@ const userSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  boards: {
+    name: String,
+    userBoards: [{type: Schema.Types.ObjectId, ref: "Board"}]
   }
 });
 
