@@ -6,7 +6,9 @@ class App extends Component {
     return (
       <div id="banner-one">
         <div className="App">
-          <div className="container"><Register /></div>
+          <div className="container">
+            <Register />
+          </div>
         </div>
       </div>
     );
