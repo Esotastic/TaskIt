@@ -1,9 +1,5 @@
 import React from "react"
 import './register.scss';
-const url = "/";
-
-
-
 
 export default class Register extends React.Component {
   state = {
@@ -13,13 +9,13 @@ export default class Register extends React.Component {
     password: ""
   };
 
-  
-    change = e => {
-      this.setState({
-        [e.target.name]: e.target.value
-      });
-    };
+  change = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
+<<<<<<< Updated upstream
     onSubmit = e => {
       const { fullName, userName, email, password } = this.state;
       console.log(this.state);
@@ -29,46 +25,61 @@ export default class Register extends React.Component {
         headers: {
           "Content-Type": "application/json"
         }
+=======
+  onSubmit = () => {
+    const { fullName, userName, email, password } = this.state;
+    console.log(this.state);
+    fetch('http://localhost:3000/', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: fullName,
+        userName: userName,
+        email: email,
+        password: password
+      })
+>>>>>>> Stashed changes
 
-      }).then(res => res.json(res))
-      .then(res => console.log('Successfully registered new user: ', JSON.stringify(res)))
-      .catch(error => console.error('Error: ', error));
-      }
+    }).then(res => res.json())
+    .then(res => console.log('Successfully registered new user: ', JSON.stringify(res)))
+    .catch(error => console.error('Error: ', error));
+    };
 
   render() {
     return (
-      <div class="container">
-      <form id="register" class="col s12 blue-grey lighten-5 z-depth-3 center-align text-center-align">
-        <div class="row">
-          <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix">account_circle</i>
-            <input className="fullName" id="icon_prefix" type="text" />
-            <label for="icon_prefix">Full Name</label>
+      <div className="container">
+      <form method='post' id="register" className="col s12 blue-grey lighten-5 z-depth-3 center-align text-center-align">
+        <div className="row">
+          <div className="input-field col s6 offset-s3">
+            <i className="material-icons prefix">account_circle</i>
+            <input name='fullName' onChange={this.change} className="fullName" id="icon_prefix" type="text" />
+            <label htmlFor="icon_prefix">Full Name</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix">email</i>
-            <input id="icon_prefix" type="email" />
-            <label for="icon_prefix">Email</label>
+        <div className="row">
+          <div className="input-field col s6 offset-s3">
+            <i className="material-icons prefix">email</i>
+            <input name='email' onChange={this.change} id="icon_prefix" type="email" />
+            <label htmlFor="icon_prefix">Email</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix">contacts</i>
-            <input id="icon_prefix" type="text" />
-            <label for="icon_prefix">Username</label>
+        <div className="row">
+          <div className="input-field col s6 offset-s3">
+            <i className="material-icons prefix">contacts</i>
+            <input name='userName' onChange={this.change} id="icon_prefix" type="text" />
+            <label htmlFor="icon_prefix">Username</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix">security</i>
-            <input id="icon_prefix" type="password"/>
-            <label for="icon_prefix">Password</label>
+        <div className="row">
+          <div className="input-field col s6 offset-s3">
+            <i className="material-icons prefix">security</i>
+            <input name='password' onChange={this.change} id="icon_prefix" type="password"/>
+            <label htmlFor="icon_prefix">Password</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Register
-          <i class="material-icons right">send</i>
+        <button className="btn waves-effect waves-light" type="submit" onClick={this.onSubmit}>Register
+          <i className="material-icons right">send</i>
         </button>
         
       </form>
