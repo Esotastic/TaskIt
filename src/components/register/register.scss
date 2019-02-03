@@ -1,8 +1,14 @@
 //register SCSS goes here..
+#banner-register {
+    padding:70px 0;
+    background-image: url('../../images/banner-01.jpeg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow:hidden;
+    width:100%;
+}
 #register {
     padding:20px 20px 40px 20px;
-    margin-top:60px;
-    margin-bottom:80px;
     border-radius:10px;
     .row {
     padding:2px 0;

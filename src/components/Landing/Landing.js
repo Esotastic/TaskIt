@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../Header/Header';
+import Register from '../register/Register';
 import './Landing.scss';
 
 class Landing extends Component {
@@ -8,8 +8,8 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                <Header />
-                <div id="banner-one">
+                <div id="banner-landing">
+                    <Register />
                 </div>
                 <div class="row">
                     <div class="container">
@@ -20,7 +20,7 @@ class Landing extends Component {
                         </div>
                     </div>
                 </div>
-                <div id="banner-two" class="row">
+                <div id="banner-landing-two" class="row">
                     <div class="container center-align s12">
                         <h2 class="grey-text text-lighten-5">Why Choose Taskit?</h2>
                     </div>
