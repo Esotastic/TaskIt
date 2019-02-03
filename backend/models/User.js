@@ -1,23 +1,29 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
+
+// ensure unique index for entries,
+// removes deprecation warning
+mongoose.set('useCreateIndex', true);
 
 //Create Schema
-const UserSchema = new Schema({
+const userSchema = new Schema({
   fullName: {
     type: String,
     required: true
   },
   userName: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
-    require: true
+    required: true
   },
   email: {
     type: String,
-    require: true
+    required: true,
+    unique: true
   },
   date: {
     type: Date,
@@ -29,4 +35,4 @@ const UserSchema = new Schema({
   }
 });
 
-module.exports = User = mongoose.model("user", UserSchema);
+mongoose.model("users", userSchema);

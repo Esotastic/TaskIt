@@ -11,7 +11,6 @@ You can get this after the following:
 ### they will give you an example like the one above
 ### once added to the keys.js file you can test it by using `npm server` after moving to the ./backend/ directory
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

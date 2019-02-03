@@ -1,48 +1,75 @@
 const express = require("express");
-const router = express.Router();
+const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 //Item Model
-const User = require("../../models/User");
-const Board = require("../../models/Board");
+const User = mongoose.model('users');
 
-
-module.exports = router;
-
-// @route GET api/items
-// @desc Get All Items 
+module.exports = (app) => {
+  // @route GET api/items
+// @desc Get All Items
 // @access Public
-router.get("/", (req, res) => {
-  User.find()
-    .sort({ date: -1 })
-    .populate("boards")
-    .then(users => res.json(users));
-}); 
+  app.get("/register", (req, res) => {
+    User.find()
+      .sort({ date: -1 })
+      .then(users => res.json(users));
+  });
 
 // @route POST api/Users
 // @desc Create a User
 // @access Public
-// you have to create a user objct with name and username strings
-router.post("/", (req, res) => {
-  const newUser = new User({
-    fullName: req.body.fullName,
-    userName: req.body.userName,
-    email: req.body.email,
-    password: bcrypt.hashSync(req.body.password),
-  });
+// you have to create a user object with name and username strings
+  app.post("/register", (req, res) => {
+    const fullname = req.body.fullName;
+    const email = req.body.email;
+    const username = req.body.userName;
+    const password = req.body.password;
 
-  newUser.save().then(user => res.json(user));
-}); 
+
+    /*
+    Form successfully registers a user, but it will send an error:
+     ValidationError: users validation failed: fullName: Path `fullName` is required., email: Path `email` is required., userName: Path `userName`
+     is required., password: Path `password` is required.
+
+     However, mLab will show that a user has been stored.
+    */
+
+    User.findOne({ email: req.body.email})
+      .then((err, user) => {
+        if (user) {
+          console.log(user);
+          return res.status(400).json({ email: "Email already exists" });
+        } else {
+
+          const newUser = new User ({
+            fullName: fullname,
+            email: email,
+            userName: username,
+            password: password
+          });
+
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              newUser.password = hash;
+              newUser
+                .save()
+                .then(user => res.json(user))
+                .catch(err => console.log(err));
+            })
+          })
+        }
+      });
+
+
+  });
 
 // @route DELETE api/users/:id
 // @desc Delete a user
 // @access Public
-router.delete("/:id", (req, res) => {
-  User.findById(req.params.id)
-    .then(user => user.remove().then(() => res.json({success: true})))
-    .catch(err => res.status(404).json({success: false})); 
-});
+  app.delete("/:id", (req, res) => {
+    User.findById(req.params.id)
+      .then(user => user.remove().then(() => res.json({success: true})))
+      .catch(err => res.status(404).json({success: false}));
+  });
 
-
-
-module.exports = router;
+};

@@ -2,9 +2,6 @@ import React from "react";
 import './login.scss';
 const url = "/";
 
-
-
-
 export default class Login extends React.Component {
   state = {
     userName: "",

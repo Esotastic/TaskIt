@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Landing from './components/Landing/Landing.js';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-
 import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
+
   render() {
     return (
       <div>
