@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   fullName: {
     type: String,
-    required: true 
+    required: true
   },
   userName: {
-  	type: String,
-  	required: true
+    type: String,
+    required: true
   },
   password: {
     type: String,
@@ -22,6 +22,10 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  boards: {
+    name: String,
+    userBoards: [{type: Schema.Types.ObjectId, ref: "Board"}]
   }
 });
 

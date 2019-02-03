@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 
 //Item Model
 const User = require("../../models/User");
+const Board = require("../../models/Board");
+
 
 module.exports = router;
 
@@ -13,6 +15,7 @@ module.exports = router;
 router.get("/", (req, res) => {
   User.find()
     .sort({ date: -1 })
+    .populate("boards")
     .then(users => res.json(users));
 }); 
 
