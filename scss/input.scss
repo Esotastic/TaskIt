@@ -1,10 +1,4 @@
-@import 'reset';
-@import 'colors';
-@import 'media-queries';
-@import 'typography'
-
-nav {
-    background-image:url(../images/header_bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+@import '_reset';
+@import '_colors';
+@import '_media-queries';
+@import '_typography';

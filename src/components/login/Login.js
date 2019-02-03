@@ -16,7 +16,7 @@ export default class Login extends React.Component {
   };
 
   onSubmit = e => {
-    const { fullName, userName, email, password } = this.state;
+    const { userName, password } = this.state;
     console.log(this.state);
     fetch(url, {
       method: "POST",
@@ -27,11 +27,12 @@ export default class Login extends React.Component {
 
     }).then(res => res.json(res))
       .then(res => console.log('Successfully registered new user: ', JSON.stringify(res)))
-      .catch(error => console.error('Error: ', error));
+      .catch(e => console.error('Error: ', e));
   };
 
   render() {
     return (
+    <div id="banner-login">
       <div class="container">
         <form id="login" class="col s12 blue-grey lighten-5 z-depth-3 center-align text-center-align">
           <div class="row">
@@ -54,6 +55,7 @@ export default class Login extends React.Component {
 
         </form>
       </div>
+    </div>
     )
   }
 };
