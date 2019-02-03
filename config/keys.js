@@ -1,3 +1,3 @@
 module.exports = {
-    mongoURI: 'efwschroeder:GingerSnaps1020@ds017185.mlab.com:17185/taskit_dev'
+    mongoURI: 'mongodb://webdev:webdev1@ds161794.mlab.com:61794/taskit'
 };

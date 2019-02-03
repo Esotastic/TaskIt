@@ -1,11 +1,16 @@
-.brand-logo {
-    left:25px;
-}
-
-.Nav {
-    background-image: url('/images/header_bg_v2.png');
+Nav {
+    background-image: url('../../images/nav-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
     width: 100%;
+    li a {
+        font-weight:bold;
+    }
+}
+.brand-logo {
+    left:25px;
+}
+.current {
+    background-color: rgba(0,0,0,0.2);
 }

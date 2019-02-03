@@ -31,6 +31,7 @@ export default class Register extends React.Component {
 
   render() {
     return (
+    <div id="banner-register">
       <div class="container">
         <form id="register" class="col s12 blue-grey lighten-5 z-depth-3 center-align text-center-align">
           <div class="row">
@@ -68,6 +69,7 @@ export default class Register extends React.Component {
 
         </form>
       </div >
+    </div>
     );
   }
 };
