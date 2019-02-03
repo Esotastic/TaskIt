@@ -9,7 +9,7 @@ module.exports = (app) => {
   // @route GET api/items
 // @desc Get All Items
 // @access Public
-  app.get("/", (req, res) => {
+  app.get("/register", (req, res) => {
     User.find()
       .sort({ date: -1 })
       .then(users => res.json(users));
@@ -19,25 +19,32 @@ module.exports = (app) => {
 // @desc Create a User
 // @access Public
 // you have to create a user object with name and username strings
-  app.post("/", (req, res) => {
-    const { body } = req;
-    const {
-      fullName,
-      email,
-      userName,
-      password
-    } = body;
+  app.post("/register", (req, res) => {
+    const fullname = req.body.fullName;
+    const email = req.body.email;
+    const username = req.body.userName;
+    const password = req.body.password;
 
-    User.findOne({ email: email})
-      .then(user => {
+
+    /*
+    Form successfully registers a user, but it will send an error:
+     ValidationError: users validation failed: fullName: Path `fullName` is required., email: Path `email` is required., userName: Path `userName`
+     is required., password: Path `password` is required.
+
+     However, mLab will show that a user has been stored.
+    */
+
+    User.findOne({ email: req.body.email})
+      .then((err, user) => {
         if (user) {
+          console.log(user);
           return res.status(400).json({ email: "Email already exists" });
         } else {
 
           const newUser = new User ({
-            fullName: fullName,
+            fullName: fullname,
             email: email,
-            userName: userName,
+            userName: username,
             password: password
           });
 

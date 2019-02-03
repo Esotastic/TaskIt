@@ -1,0 +1,19 @@
+#banner-one {
+    background-image: url('/images/test_background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    min-height: 250px;
+}
+#banner-two {
+    background-image: url('/images/home-background-02-min.jpeg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    overflow:hidden;
+    width:100%;
+    padding:60px 0;
+}
+#banner-two h2 {
+    opacity: 0.8;
+}
