@@ -25,7 +25,6 @@ module.exports = (app) => {
     const username = req.body.userName;
     const password = req.body.password;
 
-
     /*
     Form successfully registers a user, but it will send an error:
      ValidationError: users validation failed: fullName: Path `fullName` is required., email: Path `email` is required., userName: Path `userName`
