@@ -10,7 +10,11 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
+<<<<<<< HEAD
 const db = require("./config/keys.js").mongoURI;
+=======
+const db = require("../config/keys").mongoURI;
+>>>>>>> 63967c105407e0b3dbb6837907ef8a30f44b1822
 
 //Connnect to Mongo
 mongoose
