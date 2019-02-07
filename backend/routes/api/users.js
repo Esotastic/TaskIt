@@ -6,8 +6,8 @@ const bcrypt = require('bcryptjs');
 const User = mongoose.model('users');
 
 module.exports = (app) => {
-  // @route GET api/items
-// @desc Get All Items
+  // @route GET api/users
+// @desc Get All users
 // @access Public
   app.get("/register", (req, res) => {
     User.find()
