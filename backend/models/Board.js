@@ -1,22 +1,19 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
-
-
+// ensure unique index for entries,
+// removes deprecation warning
+mongoose.set('useCreateIndex', true);
 //Create Board Schema
-const BoardSchema = new Schema({
+const boardSchema = new Schema({
   boardName: {
     type: String,
     required: true 
   },
-  boardForUser: [{
-    type: Schema.Types.ObjectId, ref: "User"
-  }],
   date: {
     type: Date,
     default: Date.now
   }
 });
 
-// eslint-disable-next-line no-undef
-module.exports = Board = mongoose.model("board", BoardSchema);
+mongoose.model("board", boardSchema);

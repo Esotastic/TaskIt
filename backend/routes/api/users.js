@@ -4,10 +4,12 @@ const bcrypt = require('bcryptjs');
 
 //Item Model
 const User = mongoose.model('users');
+const Task = require("../../models/Task");
+const Board = require("../../models/Board");
 
 module.exports = (app) => {
-  // @route GET api/items
-// @desc Get All Items
+  // @route GET api/users
+// @desc Get All users
 // @access Public
   app.get("/register", (req, res) => {
     User.find()
