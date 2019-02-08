@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const tasks = require("./routes/api/tasks");
+const boards = require("./routes/api/boards");
 require('./models/User');
 
 const app = express();
@@ -10,11 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
-<<<<<<< HEAD
-const db = require("./config/keys.js").mongoURI;
-=======
-const db = require("../config/keys").mongoURI;
->>>>>>> 63967c105407e0b3dbb6837907ef8a30f44b1822
+const db = require("./config/keys").mongoURI;
 
 //Connnect to Mongo
 mongoose
@@ -24,7 +21,7 @@ mongoose
 
 //Use Routes
 require('./routes/api/users')(app);
-app.use("/api/tasks", tasks);
+app.use("/api/boards", boards);
 
 const port = process.env.PORT || 5000;
 
