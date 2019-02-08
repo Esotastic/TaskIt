@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 
 //Item Model
 const User = mongoose.model('users');
+const Task = require("../../models/Task");
+const Board = require("../../models/Board");
 
 module.exports = (app) => {
   // @route GET api/users

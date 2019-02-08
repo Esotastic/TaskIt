@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const tasks = require("./routes/api/tasks");
 const boards = require("./routes/api/boards");
 require('./models/User');
+require('./models/Board');
 
 const app = express();
 
@@ -21,7 +22,7 @@ mongoose
 
 //Use Routes
 require('./routes/api/users')(app);
-app.use("/api/boards", boards);
+require("./routes/api/boards")(app);
 
 const port = process.env.PORT || 5000;
 

@@ -1,55 +1,51 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const router = express.Router({mergeParams: true});
-
+const bcrypt = require('bcryptjs');
 
 //Item Model
-const User = require("../../models/User");
-const Task = require("../../models/Task");
-const Board = require("../../models/Board");
+const User = mongoose.model('users');
+const Board = mongoose.model("board");
 
-module.exports = router;
-
-
-  // All below routes to be changed to be user-specific after initial testing. // 
+module.exports = (app) => {
   // @route GET api/boards
-  // @desc Get All board 
-  // @access Public
-  router.get("/", (req, res) => {
-    Board.find(req.params.id)
+// @desc Get All boards
+// @access Public
+  app.get("/allboards", (req, res) => {
+    Board.find()
       .sort({ date: -1 })
       .then(boards => res.json(boards));
-  }); 
+  });
 
-  // @route POST api/boards
-  // @desc Create a board
-  // @access Public
-  router.post("/newboard", (req, res) => {
+// @route POST api/boards
+// @desc Create a Board
+// @access Public
+  app.post("/newboard", (req, res) => {
     const boardName = req.body.boardName;
-    const date = req.body.date; 
-    const newBoard = new Board ({
-      boardName: boardName,
-      date: date
-    });
-  }, function(err, newBoard) {  
-    User.findOne({ fullName: "Chris Jimenez" }, function(err, foundUser){
-      if(err){
-        console.log(err);
-      } else {
-        foundUser.boards.push(newBoard);
-        foundUser.save().then(board => res.json(board));
-      }
-    });
+
+    User.findOne({fullName: "Chris Jimenez"})
+      .then((user, err) => {
+           if(user) {
+            const newBoard = new Board ({
+              boardName: boardName
+            });
+            newBoard
+              .save()
+              .then(board => res.json(board))
+              .catch(err => console.log(err));
+            user.boards.push(newBoard);
+          } else {
+            console.log("Somethings wrong");
+          }
+       });
   });
 
+// @route DELETE api/boards/:id
+// @desc Delete a board
+// @access Public
+  // app.delete("/deleteboard/:id", (req, res) => {
+  //   Board.findById(req.params.id)
+  //     .then(user => board.remove().then(() => res.json({success: true})))
+  //     .catch(err => res.status(404).json({success: false}));
+  // });
 
-  // @route DELETE api/board/:id
-  // @desc Delete a user
-  // @access Public
-  router.delete("/:id", (req, res) => {
-    Board.findById(req.params.id)
-      .then(board => board.remove().then(() => res.json({success: true})))
-      .catch(err => res.status(404).json({success: false})); 
-  });
-
-module.exports = router;
+};

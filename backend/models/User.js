@@ -29,10 +29,12 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  boards: {
-    name: String,
-    userBoards: [{type: Schema.Types.ObjectId, ref: "Board"}]
-  }
+  boards: [
+    {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Board"
+    }
+  ]
 });
 
 mongoose.model("users", userSchema);
