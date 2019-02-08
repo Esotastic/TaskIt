@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Landing from './components/Landing/Landing.js';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
