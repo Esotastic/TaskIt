@@ -16,4 +16,6 @@ const boardSchema = new Schema({
   }
 });
 
-mongoose.model("board", boardSchema);
+const Board = mongoose.model("board", boardSchema);
+
+module.exports = Board;
