@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+
+
 // ensure unique index for entries,
 // removes deprecation warning
 mongoose.set('useCreateIndex', true);
 
 //Create Schema
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
     required: true
@@ -37,4 +39,6 @@ const userSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("users", userSchema);
+const User = mongoose.model("users", userSchema);
+
+module.exports = User;

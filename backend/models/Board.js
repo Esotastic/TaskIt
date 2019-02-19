@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 // ensure unique index for entries,
 // removes deprecation warning
-mongoose.set('useCreateIndex', true);
+// mongoose.set('useCreateIndex', true);
 //Create Board Schema
-const boardSchema = new Schema({
+const boardSchema = new mongoose.Schema({
   boardName: {
     type: String,
     required: true 

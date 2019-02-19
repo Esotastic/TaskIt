@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 //Item Model
-const User = mongoose.model('users');
+const User = mongoose.model("users");
 const Board = mongoose.model("board");
 
 module.exports = (app) => {
@@ -19,38 +19,27 @@ module.exports = (app) => {
 // @route POST api/boards
 // @desc Create a Board
 // @access Public
-  app.post("/newboard", (req, res) => {
+// When tsting in Postman, the ":id" must come from an existing User id 
+  app.post("/newboard/:id", (req, res) => {
     const boardName = req.body.boardName;
-    const newBoard = new Board ({
-      boardName: boardName
+    User.findById(req.params.id)
+    .then((user, err) => {
+      if(user) {
+        const newBoard = new Board ({
+          boardName: boardName
+        });
+        newBoard
+        .save()
+        .then(board => res.json(board))
+        .catch(err => console.log(err))
+       console.log(user + "before pushing");
+       user.boards.push(newBoard._id);
+       user.save().catch(err => console.log(err));
+       console.log(user + "post promise");
+     } else {
+       console.log("Somethings wrong");
+     }
     });
-
-    // User.findOneAndUpdate({fullName: "Chris Jimenez"}, function(err, user){
-    //   if(err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log(user);
-    //     user.boards.push(newBoard);
-    //     res.json(newBoard);
-    //     console.log(user);
-    //   }
-    // });
-
-    User.findOne({fullName: "Chris Jimenez"})
-      .then((user, err) => {
-           if(user) {
-            console.log(user + "before pushing");
-            user.boards.push(newBoard._id);
-            user.save().then(savedUser => res.json(savedUser)).catch(err => console.log(err));
-            newBoard
-              .save()
-              .then(board => res.json(board))
-              .then(console.log(user + "still working here"))
-              .catch(err => console.log(err));
-          } else {
-            console.log("Somethings wrong");
-          }
-       });
   });
 
 // @route DELETE api/boards/:id
