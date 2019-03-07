@@ -19,25 +19,26 @@ module.exports = (app) => {
 // @route POST api/boards
 // @desc Create a Board
 // @access Public
-// When tsting in Postman, the ":id" must come from an existing User id 
+// When testing in Postman, the ":id" must come from an existing User id 
   app.post("/newboard/:id", (req, res) => {
     const boardName = req.body.boardName;
     User.findById(req.params.id)
     .then((user, err) => {
       if(user) {
+        console.log(user.username);
         const newBoard = new Board ({
-          boardName: boardName
+          boardName: boardName,
+          userOwner: {
+            id: user._id,
+            username: user.userName
+          }
         });
         newBoard
         .save()
         .then(board => res.json(board))
         .catch(err => console.log(err))
-       console.log(user + "before pushing");
-       user.boards.push(newBoard._id);
-       user.save().catch(err => console.log(err));
-       console.log(user + "post promise");
      } else {
-       console.log("Somethings wrong");
+       console.log("No Such User");
      }
     });
   });

@@ -13,6 +13,13 @@ const boardSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  userOwner: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+    username: String
   }
 });
 

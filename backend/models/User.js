@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+let BoardSchema = require("./Board").schema;
 
 
 
@@ -31,12 +32,12 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  boards: [
-    {
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: "Board"
-    }
-  ]
+  // boards: 
+  //    [{
+  //     type: mongoose.Schema.Types.ObjectId, 
+  //     ref: "board"
+  //   }
+  // ]
 });
 
 const User = mongoose.model("users", userSchema);
